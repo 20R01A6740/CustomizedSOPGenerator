@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import './form.css';
 
 export const Form = () => {
@@ -60,9 +61,9 @@ export const Form = () => {
                     <p>
                         If you would like to get it edited, reviewed, or drafted by our experts,
                         you can get in touch with us:{' '}
-                        <a href="https://effizient-immigration-inc.square.site/s/shop">
+                        <Link to="https://effizient-immigration-inc.square.site/s/shop">
                             https://effizient-immigration-inc.square.site/s/shop
-                        </a>
+                        </Link>
                     </p>
                     <form onSubmit={handleSubmit}>
                         {/* Email */}
@@ -128,9 +129,9 @@ export const Form = () => {
                                 </button>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="#"
+                                            to="#"
                                             onClick={() =>
                                                 handleChange({
                                                     target: { name: 'highestEducationLevel', value: 'High School' },
@@ -138,12 +139,12 @@ export const Form = () => {
                                             }
                                         >
                                             High School
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="#"
+                                            to="#"
                                             onClick={() =>
                                                 handleChange({
                                                     target: { name: 'highestEducationLevel', value: 'Associate Degree' },
@@ -151,12 +152,12 @@ export const Form = () => {
                                             }
                                         >
                                             Associate Degree
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="#"
+                                            to="#"
                                             onClick={() =>
                                                 handleChange({
                                                     target: { name: 'highestEducationLevel', value: 'Bachelor\'s Degree' },
@@ -164,12 +165,12 @@ export const Form = () => {
                                             }
                                         >
                                             Bachelor's Degree
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="#"
+                                            to="#"
                                             onClick={() =>
                                                 handleChange({
                                                     target: { name: 'highestEducationLevel', value: 'Master\'s Degree' },
@@ -177,12 +178,12 @@ export const Form = () => {
                                             }
                                         >
                                             Master's Degree
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="#"
+                                            to="#"
                                             onClick={() =>
                                                 handleChange({
                                                     target: { name: 'highestEducationLevel', value: 'Ph.D.' },
@@ -190,15 +191,15 @@ export const Form = () => {
                                             }
                                         >
                                             Ph.D.
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <hr className="dropdown-divider" />
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="#"
+                                            to="#"
                                             onClick={() =>
                                                 handleChange({
                                                     target: { name: 'highestEducationLevel', value: 'Other' },
@@ -206,7 +207,7 @@ export const Form = () => {
                                             }
                                         >
                                             Other
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
