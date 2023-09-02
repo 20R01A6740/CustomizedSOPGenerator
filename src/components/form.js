@@ -1,73 +1,77 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import './form.css';
 
-export const Form = () => {
-    const [formData, setFormData] = useState({
-        email: '',
-        fullName: '',
-        age: '',
-        highestEducationLevel: '',
-        instituteCompleted: '',
-        fieldOfStudy: '',
-        hasWorkExperience: 'No',
-        jobTitle: '',
-        companyName: '',
-        jobDuties: '',
-        instituteInCanada: '',
-        programInCanada: '',
-        applyingCountry: '',
-        futureGoals: '',
-        englishListeningScore: '',
-        englishReadingScore: '',
-        englishSpeakingScore: '',
-        englishWritingScore: '',
-        firstYearTuitionPaid: 'No',
-        tuitionFeePaid: '',
-        didGIC: 'No',
-        gicAmountPaid: '',
+const Form = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    fullName: '',
+    age: '',
+    highestEducationLevel: '',
+    instituteCompleted: '',
+    fieldOfStudy: '',
+    hasWorkExperience: 'No',
+    jobTitle: '',
+    companyName: '',
+    jobDuties: '',
+    instituteInCanada: '',
+    programInCanada: '',
+    applyingCountry: '',
+    futureGoals: '',
+    englishListeningScore: '',
+    englishReadingScore: '',
+    englishSpeakingScore: '',
+    englishWritingScore: '',
+    firstYearTuitionPaid: 'No',
+    tuitionFeePaid: '',
+    didGIC: 'No',
+    gicAmountPaid: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
     });
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        axios.post("/api/sendSOP", formData).then(function (response) {
-            console.log(response);
-        }).catch(function (error) {
-            console.log(error);
-        })
-        
-       
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    axios
+      .post('/api/sendSOP', formData)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
-    return (
-        <div className="App">
-            <div className="container mt-5">
-                <div className="form-container border rounded p-4">
-                    <h1 className="mb-4">Customized SOP Generator</h1>
-                    <p>
-                        Fill this questionnaire for the student. After submitting, you will
-                        receive an email at the email address that you have provided with a
-                        Statement of Purpose customized for you. You can use and modify that as
-                        per your needs.
-                    </p>
-                    <p>
-                        If you would like to get it edited, reviewed, or drafted by our experts,
-                        you can get in touch with us:{' '}
-                        <Link to="https://effizient-immigration-inc.square.site/s/shop">
-                            https://effizient-immigration-inc.square.site/s/shop
-                        </Link>
-                    </p>
-                    <form onSubmit={handleSubmit}>
-                        {/* Email */}
-                        <div className="mb-3">
+  return (
+    <Router>
+      <div className="App">
+        <div className="container mt-5">
+          <div className="form-container border rounded p-4">
+            <h1 className="mb-4">Customized SOP Generator</h1>
+            <p>
+              Fill this questionnaire for the student. After submitting, you will
+              receive an email at the email address that you have provided with a
+              Statement of Purpose customized for you. You can use and modify that as
+              per your needs.
+            </p>
+            <p>
+              If you would like to get it edited, reviewed, or drafted by our experts,
+              you can get in touch with us:{' '}
+              <a href="https://effizient-immigration-inc.square.site/s/shop">
+                https://effizient-immigration-inc.square.site/s/shop
+              </a>
+            </p>
+            <form onSubmit={handleSubmit}>
+              {/* Your form inputs */}
+               {/* Email */}
+               <div className="mb-3">
                             <label htmlFor="email" className="form-label">
                                 Email<span className="text-danger">*</span>
                             </label>
@@ -543,14 +547,15 @@ export const Form = () => {
                                 />
                             </div>
                         )}
-                        <button type="submit" className="btn btn-primary" onClick={handleSubmit} >
-                            Submit
-                        </button>
-                    </form>
-                </div>
-            </div>
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
-    );
+      </div>
+    </Router>
+  );
 };
 
 export default Form;
